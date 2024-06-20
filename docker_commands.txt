@@ -1,0 +1,19 @@
+docker build -t myapp3 .
+
+docker run --name myapp3_c -p 4000:4000 myapp3
+
+docker images
+
+docker ps
+
+docker ps -a
+
+docker image rm myapp2 (removes)
+
+docker container rm myapp_c2 ( remove in use)
+
+docker system prune -a (delete everything)
+
+docker build -t myapp:v1 .
+docker images
+docker run --name myapp_c -p 4000:4000 myapp:v1
