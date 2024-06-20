@@ -1,0 +1,3 @@
+# before creating this file run 'npm install'
+# if docker files inside our project file we can ignore them by using this method
+node_modules
