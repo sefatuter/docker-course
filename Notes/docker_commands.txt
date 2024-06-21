@@ -17,3 +17,7 @@ docker system prune -a (delete everything)
 docker build -t myapp:v1 .
 docker images
 docker run --name myapp_c -p 4000:4000 myapp:v1
+
+npm i ( to install node_modules)
+
+docker start myapp_c
