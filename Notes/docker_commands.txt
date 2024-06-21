@@ -21,3 +21,42 @@ docker run --name myapp_c -p 4000:4000 myapp:v1
 npm i ( to install node_modules)
 
 docker start myapp_c
+
+
+// we uploaded nodemon
+
+docker build -t myapp:nodemon .
+
+docker run --name myapp_c_nodemon -p 4000:4000 --rm myapp:nodemon ( added --rm when we dont use we remove container )
+    (now nodemon look for the changes in the files, and restart automatically)
+    (when we make changes in our computer changes only, not container)
+
+docker stop myapp_c_nodemon ( when we stop it deletes container automatically)
+
+ docker run --name myapp_c_nodemon -p 4000:4000 --rm -v C:\Users\SefaPc\Documents\GitHub\docker-course\docker-lesson-10\api:/app -v /app/node_modules  myapp:nodemon
+ (second volume specifies the location of node_modules folder inside the container)
+
+ // to automate this process we created docker-compose.yaml files
+ look inside.
+
+ """
+ version: "3.8"
+services:
+  api:
+    build: ./api                // build folder
+    container_name: api_c       // container name
+    ports:
+      - '4000:4000'             //ports
+    volumes:
+      - ./api:/app              //dont need absolute path
+      - /app/node_modules       // dont use .
+"""
+
+docker system prune ( delete everything start over )
+
+docker-compose up ( start container )
+docker-compose down ( stop container )
+
+
+docker-compose down --rmi all -v ( removes containers including -volumes if you add -v)
+
