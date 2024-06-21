@@ -60,3 +60,19 @@ docker-compose down ( stop container )
 
 docker-compose down --rmi all -v ( removes containers including -volumes if you add -v)
 
+
+# Dockerizing api and react app
+
+to create image :
+
+docker build -t usersefa/myapi .
+
+to push image to docker hub:
+
+docker push usersefa/myapi
+
+to pull image from docker:
+
+docker pull usersefa/myapi:latest
+
+
